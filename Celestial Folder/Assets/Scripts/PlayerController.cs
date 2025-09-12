@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
     Vector3 cameraOffset = new Vector3(0, .5F, .2f);
-    Vector2 cameraRotation = Vetor2.zero;
+    Vector2 cameraRotation = Vector2.zero;
     Camera playerCam;
     InputAction lookAxis;
     Rigidbody rb;
@@ -40,7 +40,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         cameraRotation.y = Mathf.Clamp(cameraRotation.y, -camRotationLimit, camRotationLimit);4
 
         playerCam.transform.rotation = Quaternion.Euler(-camRotationLimit.y, cameraRotation.x, 0);
-        transform.rotation = Quaternion.AngleAxis(camaRotation.x, Vector3.up);
+        transform.rotation = Quaternion.AngleAxis(cameraRotation.x, Vector3.up);
 
         // Movement System
         Vector3 tempMove = rb.linearVelocity;
