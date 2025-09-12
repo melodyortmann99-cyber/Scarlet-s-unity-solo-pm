@@ -7,7 +7,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     Vector2 cameraRotation = Vector2.zero;
     Camera playerCam;
     InputAction lookAxis;
-    Rigidbody rb;
+    public Rigidbody rb;
 
     float inputX;
     float inputY;
@@ -32,15 +32,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void Update()
     {
         // Camera Handler
-        playerCam.transform.position = transform.position + cameraOffset;
+        Quaternion playerRotation = Quaternion.identity;
+        playerRotation.y = playerCam.transform.rotation.y;
+        playerRotation.w = playerCam.transform.rotation.w;
 
-        cameraRotation.x += lookAxis.ReadValue<Vector2>().x * Xsensitivity;
-        cameraRotation.y += lookAxis.ReadValue<Vector2>().y * Ysensitivity;
-
-        cameraRotation.y = Mathf.Clamp(cameraRotation.y, -camRotationLimit, camRotationLimit);4
-
-        playerCam.transform.rotation = Quaternion.Euler(-camRotationLimit.y, cameraRotation.x, 0);
-        transform.rotation = Quaternion.AngleAxis(cameraRotation.x, Vector3.up);
+        transform.rotation = playerRotation;
 
         // Movement System
         Vector3 tempMove = rb.linearVelocity;
@@ -49,8 +45,9 @@ public class NewMonoBehaviourScript : MonoBehaviour
         tempMove.z = inputX * speed;
 
         rb.linearVelocity = (tempMove.x * transform.forward) + (tempMove.y * transform.up) + (tempMove.z * transform.right);
+        
     }
-
+        
     public void Move(InputAction.CallbackContext context)
     {
         Vector2 InputAxis = context.ReadValue<Vector2>();
