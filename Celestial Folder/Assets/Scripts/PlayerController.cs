@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement; 
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     Vector3 cameraOffset = new Vector3(0, .5F, .2f);
     Vector2 cameraRotation = Vector2.zero;
@@ -70,25 +71,24 @@ public class NewMonoBehaviourScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-       if (other.tag == "enemy")
+        if (other.tag == "enemy")
         {
             Health = 0;
         }
 
-       if((other.tag == 'health') && (Health < maxHealth))
+        if ((other.tag == "health") && (Health < maxHealth))
         {
             Health++;
-            other.gameObject.SetActive(false );
+            other.gameObject.SetActive(false);
 
         }
     }
 
-
-
-
-
-
-
-
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "hazard")
+            {
+                Health--;
+            }
+    }
 }
