@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         if ((other.tag == "health") && (Health < maxHealth))
         {
             Health++;
-            other.gameObject.SetActive(false);
+            other.gameObject.SetActive(true);
 
         }
     }
