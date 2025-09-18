@@ -6,6 +6,7 @@ TagManager:
   tags:
   - health
   - enemy
+  - hazard
   layers:
   - Default
   - TransparentFX
