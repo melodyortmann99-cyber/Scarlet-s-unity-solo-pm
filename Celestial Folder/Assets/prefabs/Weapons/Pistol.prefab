@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4519833501022906020}
   - component: {fileID: 7341838010008485140}
   - component: {fileID: 768633391413569608}
-  - component: {fileID: 4593266868223670687}
+  - component: {fileID: 5328385055673336665}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: weapon
@@ -236,7 +236,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4593266868223670687
+--- !u!114 &5328385055673336665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1735188290437451126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae8bc9722a9c284a8a71c36a0452dcb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f7785017e4d72843b4fd14489476fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 7228469466681176287, guid: afc76177d51b87d4ea7e4589dcc37a7d, type: 3}
@@ -253,20 +253,21 @@ MonoBehaviour:
   firePoint: {fileID: 0}
   firingDirection: {fileID: 0}
   canFire: 1
-  holdToAttack: 0
+  holdToAttack: 1
+  reloading: 0
   weaponID: 0
-  weaponName: PowPow
-  projLifespan: 1
-  projVelocity: 10000
-  reloadCooldown: 1
-  rof: 0.01
+  weaponName: 
+  projLifespan: 0
+  projVelocity: 0
+  reloadCooldown: 0
+  rof: 0
   fireModes: 0
   currentFireMode: 0
-  clip: 9
-  clipSize: 9
-  ammo: 20
-  maxAmmo: 200
-  ammoRefill: 20
+  clip: 0
+  clipSize: 0
+  ammo: 0
+  maxAmmo: 0
+  ammoRefill: 0
 --- !u!1 &4044447706930469734
 GameObject:
   m_ObjectHideFlags: 0
