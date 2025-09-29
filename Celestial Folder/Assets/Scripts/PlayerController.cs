@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 5;
 
     public bool attacking = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -145,10 +146,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "enemy")
-        {
-            Health = 0;
-        }
 
         if ((other.tag == "health") && (Health < maxHealth))
         {
@@ -163,6 +160,10 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "hazard")
             {
                 Health--;
-            }
+        }
+        if (collision.gameObject.tag == "enemy")
+        {
+            Health = 0;
+        }
     }
 }

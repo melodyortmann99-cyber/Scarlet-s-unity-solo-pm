@@ -1,32 +1,46 @@
 using UnityEngine;
 using UnityEngine.AI;
-
-
-public class enemy : MonoBehaviour
+public class BasicEnemyController : MonoBehaviour
 {
+    PlayerController player;
+
+    [Header("Logic")]
     NavMeshAgent agent;
+    public bool isFollowing = true;
+
+    [Header("Enemy Stats")]
+    public int health = 5;
+    public int maxHealth = 5;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
-
-    public int Health = 5;
-
-/* Unmerged change from project 'Assembly-CSharp.enemy'
-Before:
-    public int maxHealth = 5;
-After:
-    private int maxHealth = 5;
-*/
-    private int maxHealth = 5;
-
-    public int MaxHealth { get => maxHealth; set => maxHealth = value; }
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = GameObject.Find("Player").transform.position;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
 
+        else
+        {
+            if (isFollowing)
+                agent.destination = player.transform.position;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "prroj")
+        {
+            health--;
+            Destroy(collision.gameObject);
+        }
     }
 }
