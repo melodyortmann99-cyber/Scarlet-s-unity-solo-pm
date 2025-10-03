@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 5;
 
     public bool attacking = false;
+    internal float health;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

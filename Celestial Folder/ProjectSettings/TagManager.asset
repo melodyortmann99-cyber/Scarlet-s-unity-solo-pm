@@ -9,6 +9,7 @@ TagManager:
   - hazard
   - prroj
   - weapon
+  - eSpawner
   layers:
   - Default
   - TransparentFX
