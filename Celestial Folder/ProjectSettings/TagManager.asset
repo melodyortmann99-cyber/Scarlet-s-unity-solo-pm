@@ -12,6 +12,9 @@ TagManager:
   - eSpawner
   - ui_pause
   - ui_health
+  - weaponUI
+  - ui_ammo
+  - ui_clip
   layers:
   - Default
   - TransparentFX
